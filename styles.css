@@ -1,0 +1,1576 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+/* Evitar el scroll horizontal */
+html, body {
+    overflow-x: hidden; /* Esto asegura que no haya scroll horizontal */
+    margin: 0; /* Evitar cualquier margen por defecto */
+}
+
+/* Imagen de fondo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Asegura que ocupe toda la altura */
+    background-size: cover; /* La imagen cubre todo el contenedor */
+    background-position: center center; /* Asegura que la imagen siempre esté centrada */
+    z-index: -1;
+    background-color: #1a3151;
+}
+
+
+
+/*Contenedor del carrusel*/
+#imagen-principal .carrusel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Imagenes del carrusel */
+#imagen-principal .carrusel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin deformarse */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+}
+
+/* Imagen activa del carrusel */
+#imagen-principal .carrusel img.activa {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Contenedor de la imagen */
+#imagen-principal {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Puedes ajustar la altura según sea necesario */
+    overflow: hidden; /* Es importante para evitar que la imagen se desborde */
+}
+
+
+ /* Estilo para el contenedor */
+ .contenedor {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 10rem; /* Para centrar la animación en la pantalla */
+    background-color: transparent; /* Fondo gris claro */
+    margin-left: 32rem;
+}
+
+/* Estilo para el dotlottie-player */
+dotlottie-player {
+    overflow: hidden;
+}
+
+
+
+
+/* Cartel de los novios */
+#cartel-novios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 2rem;
+    border-radius: 1rem;
+    font-family: 'Dancing Script', cursive;
+    height: 50%;
+    width: 70%;
+
+}
+
+#cartel-novios h1 {
+    font-size: 8rem;
+    margin-bottom: 1rem;
+}
+
+#cartel-novios .frase, #cartel-novios .fecha {
+    font-size: 3rem;
+
+}
+
+#cartel-novios .linea-divisora {
+    border: 0;
+    height: 2px;
+    background-color: #fff;
+    margin: 3rem auto;
+    width: 90%;
+}
+
+
+/* Para pantallas grandes */
+@media (min-width: 1024px) {
+    #imagen-principal {
+        height: 100vh; /* Ocupa todo el alto de la pantalla */
+    }
+}
+
+@media (max-width: 768px) {
+
+    #cartel-novios h1 {
+        font-size: 4rem;
+    }
+
+    #cartel-novios .frase, #cartel-novios .fecha {
+        font-size: 2rem;
+    }
+}
+
+/*Para dispositivos pequenios*/
+@media (max-width: 480px) {
+    #cartel-novios {
+        padding: 1.5rem;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        padding-bottom: 4rem;
+        top: 40%;
+        left: 50%;
+    }
+
+    #cartel-novios h1 {
+        font-size: 2.5rem;
+        padding-top: 2.5rem;
+        padding-bottom: 2rem;
+    }
+
+    #cartel-novios .frase {
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        margin-bottom: 2px;
+    }
+
+    #cartel-novios .fecha {
+      font-size: 1.2rem;
+      padding-top: 3px;
+  }
+
+}
+
+
+/*Seccion franja azul*/
+#franja-azul {
+    background-color: #1a3151; /* Azul de fondo */
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.franja1 {
+    max-width: 1200px;
+    padding: 0 15px;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+.contenido-franja1 {
+    margin-top:auto;
+    margin-bottom: auto;
+    text-align: center;
+    font-weight: 550;
+}
+
+.mensaje {
+    color: #fff;
+    font-size: 3.5rem;
+    font-family: 'Satisfy', cursive;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+.linea-divisora2 {
+    border: 0;
+    border-top: 2px solid #fff;
+    margin: 10px auto;
+    width: 60%;
+}
+
+
+
+
+/*Disenio de contador*/
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.5rem;
+    font-family: 'Satisfy', cursive;
+    color: #fff;
+    text-align: center;
+}
+
+/* Añadir animaciones suaves */
+.contador span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #a7b467;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contador span.cambio {
+    transform: scale(1.8);
+    color: #d9ff00; /* Cambia de color cuando el número cambia */
+}
+
+
+@media (max-width: 768px) {
+    .mensaje {
+        font-size: 1.5rem; /* Reducir tamaño de fuente en móviles */
+    }
+
+    .contador {
+        display: flex;
+        font-size: 1.2rem; /* Reducir tamaño del contador en móviles */
+    }
+
+    #franja-azul {
+        padding: 20px 0; /* Reducir espaciado en móviles */
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .linea-divisora2 {
+        width: 80%; /* Hacer la línea divisora más ancha en móviles */
+    }
+    
+}
+
+@media (max-width: 480px) {
+
+    #contador {
+      font-size: 12px;
+    }
+
+    .franja1 {
+      padding: 1rem 1rem;
+    }
+
+    .mensaje {    
+        font-size: 2.5rem; /* Reducir aún más el tamaño del mensaje */
+        padding-bottom: 1rem;
+    }
+
+    .contador {
+        font-size: 1rem; /* Reducir aún más el tamaño del contador */
+
+    }
+
+    .linea-divisora2 {
+        width: 80%; /* Hacer la línea divisora aún más ancha en pantallas pequeñas */
+        padding-bottom: 1rem;
+    }
+}
+
+
+
+/*Seccion Historia de amor*/
+
+#about-us {
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; /* Tamaño del patrón */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+h1, .sobre-nosotros {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+
+}
+
+/*Contenedor de las biografias*/
+.contenedor-biografias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: -20px;
+}
+
+/*Biografia individual*/
+.biografia {
+    background-color: #1a3151dc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 35px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/*Imagen dentro de la biografia*/
+.foto {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border-radius: 10%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.texto-biografia {
+    padding: 10px;
+}
+
+.texto-biografia h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.texto-biografia p {
+    font-size: 1rem;
+    color: #ffffff;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/*Linea divisora*/
+.linea-divisora {
+    border: 0;
+    border-top: 2px solid #fff;
+    width: 80%;
+    margin: 10px auto;
+}
+
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-biografias {
+        flex-direction: column; /* Apilar las biografías en columna */
+        align-items: center; /* Centrar contenido */
+    }
+
+    .biografia {
+        max-width: 60%; /* Ocupa el 90% del ancho disponible */
+    }
+
+    .sobre-nosotros {
+        font-size: 3rem; /* Reducir el tamaño del título */
+    }
+}
+
+@media (max-width: 480px) {
+
+    .texto-biografia h2 {
+        font-size: 1.2rem; /* Reducir tamaño del nombre */
+    }
+
+    .texto-biografia p {
+        font-size: 0.9rem; /* Reducir tamaño del texto */
+    }
+
+    .sobre-nosotros {
+        font-size: 3rem; /* Reducir aún más el tamaño del título */
+    }
+}
+
+
+
+/*Section historia de amor*/
+
+#historia-de-amor {
+    padding: 10rem 10rem;
+    margin: 0 auto;
+    max-width: 1200  ;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; 
+} 
+
+
+.love-story {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+}
+
+.historia-fila1, .historia-fila2 {
+    display: flex;
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    text-align: center;
+    justify-content: center;
+    align-items: center; /* Centra el contenido */
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+
+
+.historia-texto h2 {
+    flex: 1;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    line-height: 1.5;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #A8E6CF;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    
+}
+
+
+.historia-texto p {
+    text-align: justify;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    color: #D9D9D9;
+}
+
+.historia-foto img {
+    max-width: 100%;
+    border-radius: 20px; /* Esquinas redondeadas para las imágenes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+    
+}
+
+@media  screen and (min-width: 1200) {
+
+  .historia-foto img {
+    width: 70%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+  
+.foto-historia {
+    width: 50%;
+    border-radius: 20px; /* Cambia el porcentaje según el diseño que prefieras */
+    object-fit: contain; /* Muestra la imagen completa sin recortarla */
+    box-shadow: rgba(0, 0, 0, 0.05);
+}
+
+
+
+.historia-fila1 {
+    flex-direction: row;
+}
+
+.historia-fila2 {
+    flex-direction: row-reverse;
+}
+
+
+
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+
+
+    .historia-fila1, .historia-fila2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .love-story h1{
+        font-family: 'Dancing Script', cursive;
+        color: #fff;
+        text-align: center;
+        font-size: 3.5rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .historia-texto h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .historia-texto p {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    foto-historia {
+        width: 100%;
+        border-radius: 20px; /* Cambia el porcentaje según el diseño que prefieras */
+        object-fit: contain; /* Muestra la imagen completa sin recortarla */
+        box-shadow: rgba(0, 0, 0, 0.05);
+    
+    }
+
+
+}
+
+
+@media (max-width: 480px) {
+
+    #historia-de-amor {
+        padding: 2rem 2rem;
+    }
+
+    .historia-fila1, .historia-fila2 {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .love-story {
+        font-family: 'Dancing Script', cursive;
+        color: #fff;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .historia-texto h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.7rem;
+    }
+
+    .historia-texto p {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .foto-historia {
+        width: 100%; /* Ajusta la imagen al 100% del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+        margin-bottom: 1rem;
+        border-radius: 20%;
+        object-fit: cover; /* Cubre el área del contenedor sin distorsionar */
+    }
+}
+
+/*Seccion galeria*/
+
+#galeria {
+    padding: 2rem;
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; 
+}
+
+.titulo-galeria {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.contenedor-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+.contenedor-galeria img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contenedor-galeria img:hover{
+    transform:scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query: filas de 3 fotos en pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-galeria {
+        grid-template-columns: repeat(4, 1fr); /* Máximo 3 fotos por fila */
+        gap: 0.5rem; /* Reducimos el espacio entre imágenes */
+    }
+}
+
+/* Media query: filas de 2 fotos en pantallas más pequeñas (como móviles) */
+@media (max-width: 480px) {
+    .contenedor-galeria {
+        grid-template-columns: repeat(3, 2fr); /* Máximo 3 fotos por fila */
+        gap: 0.4rem;
+    }
+
+    .titulo-galeria {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        color: #fff;
+    }
+}
+
+
+/* Modal: Oculto por defecto */
+.modal {
+  display: flex;
+  flex-direction: column; /* Coloca elementos uno debajo del otro */
+  justify-content: center;
+  align-items: center; /* Centra horizontalmente */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px); /* Efecto de desenfoque */
+  z-index: 1000;
+  overflow: hidden;
+  padding-top: 3rem;
+  opacity: 0;
+  transform: scale(1.5);
+  pointer-events: none; /* Evita interacción cuando está oculto */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+  }
+
+  /* Cuando el modal está activo */
+.modal.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto; /* Permite interacción cuando está visible */
+}
+  
+  /* Imagen dentro del modal */
+  .contenedor-modal {
+    max-width: 90%; /* Máximo 90% del ancho de la ventana */
+    max-height: 80%; /* Máximo 80% del alto de la ventana */
+    margin: auto;
+    display: block;
+    border-radius: 10px; /* Esquinas redondeadas opcionales */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para un efecto elegante */
+    object-fit: contain;
+  }
+  
+  /* Botón para cerrar el modal */
+  .close {
+    margin-top: 80px; /* Espaciado entre la imagen y el botón */
+    margin: 80px auto;
+    color: black;
+    font-size: 60px; /* Tamaño del texto */
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100;
+    width: 70px; /* Tamaño del botón circular */
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.527); /* Fondo semitransparente */
+    border-radius: 50%; /* Hacerlo circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    align-self: center; /* Centrar el botón horizontalmente */
+  }
+  
+  .close:hover {
+    background-color: rgba(255, 230, 0, 0.644); /* Cambiar el fondo al pasar el mouse */
+    color: rgba(0, 0, 0, 0.815); /* Cambia el color de la 'X' */
+    transform: scale(1.5); /* Agranda ligeramente el botón al pasar el mouse */
+  }
+/* Media Query: Tablets */
+@media (max-width: 768px) {
+
+  .modal {
+    padding-top: 5rem;
+  }
+
+    .contenedor-modal {
+      max-width: 90%;
+      max-height: 80%;
+    }
+
+    .close {
+      margin-top: 30px;
+    }
+  }
+  
+  /* Media Query: Móviles */
+  @media (max-width: 480px) {
+
+    .modal {
+      padding-top: 5rem;
+    }
+
+    .contenedor-modal {
+      max-width: 95%;
+      max-height: 85%;
+      border-radius: 8px;
+    }
+  
+    .close {
+      margin-top: 43px;
+      margin-left: 44%;
+      font-size: 40px;
+      width: 50px;
+      height: 50px;
+      top: 10px;
+      right: 15px;
+    }
+  }
+
+
+  /* Sección Detalles de la boda */
+#detalles-boda {
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; 
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .titulo-detalles {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #fff;
+
+  }
+  
+  /* Contenedor de tarjetas */
+  .contenedor-tarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  
+  /* Tarjetas individuales */
+  .tarjeta {
+    background-color: #1a3151dc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tarjeta:hover {
+    transform: scale(1.08);
+  }
+  
+  /* Imagen de la tarjeta */
+  .imagen-tarjeta {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  /* Título de la tarjeta */
+  .titulo-tarjeta {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+    color: #fff;
+    padding-bottom: 1rem;
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  /* Descripción de la tarjeta */
+  .descripcion-tarjeta {
+    font-size: 1rem;
+    margin: 0 1rem 1rem;
+    color: #fff;
+  }
+
+  .direccion-tarjeta {
+    color: #fff;
+    padding: 1rem 1rem;
+  }
+
+  .horario-tarjeta {
+    color: #fff;
+    padding: 1rem 1rem;
+  }
+  
+  /* Botón del mapa */
+  .boton-mapa {
+    display: inline-block;
+    margin: 1rem 0 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #5e7a51d8;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+  }
+  
+  .boton-mapa:hover {
+    background-color: #c6ee16be;
+    transform: scale(1.20)
+    
+  }
+ /*Crear mediaquerys dependiendo del gusto*/
+
+  /* Media query: Tablets */
+  @media (max-width: 768px) {
+
+    .titulo-tarjeta {
+        font-family: 'Dancing Script', cursive;
+    }
+
+    .contenedor-tarjetas {
+      flex-direction: column;
+    }
+
+    .direccion-tarjeta {
+        color: #fff;
+        font-size: 0.7rem;
+        padding: 1rem 1rem;
+    }
+  }
+  
+  /* Media Query: Móviles */
+  @media (max-width: 480px) {
+    .titulo-detalles  {
+        padding-top: 1.5rem;
+        padding-bottom: 0;
+        font-size: 2rem;
+    }
+
+    .contenedor-tarjetas {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .titulo-tarjeta {
+        font-size: 1.4rem;
+        font-family: 'Dancing Script', cursive;
+        margin: 1rem 0 0.5rem;
+        color: #fff;
+        padding-bottom: 1rem;
+        
+    }
+
+    .descripcion-tarjeta {
+        font-size: 0.8rem;
+        margin: 0 1.2rem 1.2rem;
+        color: #fff;
+        text-align: justify;
+        padding-bottom: 0.8rem;
+    }
+
+    .direccion-tarjeta {
+        color: #fff;
+        font-size: 0.7rem;
+        margin: 0 1rem 1rem;
+        padding-bottom: 1px;
+      }
+    
+      .horario-tarjeta {
+        color: #fff;
+        font-size: 0.7rem;
+        margin: 0 1rem 1rem;
+        padding-top: 2px;
+      }
+  }
+
+
+ /*Seccion para la frase en la franja azul */
+
+/* Franja azul */
+.franja-mensaje {
+    background-color: #1a3151; /* Azul principal */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    padding: 1.5rem 1rem; /* Espaciado interno */
+    font-family: 'Playfair Display', serif; /* Fuente elegante */
+    font-size: 3rem; /* Tamaño del texto */
+    line-height: 2; /* Altura de línea */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombras sutiles */
+  }
+  
+  /* Mensaje de amor */
+  .frase-amor {
+    margin: 0; /* Elimina el margen por defecto */
+    font-style: italic; /* Cursiva para darle un toque romántico */
+    max-width: 800px; /* Limitar el ancho del texto */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .frase-amor  {
+      line-height: 1.5;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .frase-amor {
+      line-height: 1.3;
+    }
+
+
+    .frase-amor {
+      font-size: 2rem;
+    }
+  }
+
+
+  /*Seccion del video*/
+
+  /* Sección del video */
+  #video-yt {
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; 
+    margin-top: 0;
+    padding: 2rem 0;/*Añadimos un poco de padding para que no quede pegado a los bordes */
+  }
+  
+  .video-youtube {
+    display: block;
+    flex-direction: column;
+    align-items: center;/* Centra el contenido horizontalmente */
+    justify-content: center;/* Centra el contenido verticalmente */
+    text-align: center;
+    margin: 2rem 1rem;
+    pointer-events: none;
+  }
+  
+  .titulo-video {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem; /* Tamaño del título */
+    color: #fff;
+    margin-bottom: 2rem; /* Separación del título con el video */
+  }
+  
+  /* Estilos para el iframe del video */
+  .video-embed {
+    pointer-events: auto;
+    display: block;
+    margin: 0 auto;
+    width: 100%;           /* El iframe ocupa el 100% del contenedor */
+    max-width: 800px;      /* El ancho máximo será de 800px */
+    height: 450px;         /* Altura estándar del video */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  }
+  
+
+  /* Consultas de medios para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .video-embed {
+      height: 300px; /* Reducimos la altura en pantallas pequeñas */
+      max-width: 90%; /* Hacemos que el video ocupe el 90% del ancho disponible */
+    }
+  
+    .titulo-video {
+      font-size: 2rem; /* Reducimos el tamaño de la fuente en móviles */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .video-embed {
+        display: block;
+        height: 200px; /* Reducimos la altura en pantallas móviles */
+        max-width: 90%; 
+    }
+
+    .titulo-video {
+        font-size: 2.4rem;
+        padding: 1rem 1rem;
+    }
+  }
+
+
+/*Seccion codigo de vestimenta*/
+
+/* Estilos generales */
+
+
+#guest-outfits {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #5e7a51d8; /* Color cálido y elegante */
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: repeat; /* Se repite por toda la pantalla */
+  background-size: auto; 
+}
+
+
+/* Título */
+.guest-outfits h2 {
+  font-size: 3rem;
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 1rem;
+}
+
+/* Descripción */
+.guest-outfits p {
+  font-size: 2rem;
+  color: black;
+  font-family: 'Lora', serif;
+  margin-bottom: 2rem;
+}
+
+/* Galería de atuendos */
+.outfits-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Contenedor principal de cada atuendo con efecto de giro */
+.outfit {
+  width: 180px;
+  height: 250px;
+  position: relative;
+  perspective: 1000px; /* Agrega profundidad al efecto */
+}
+
+/* Caja interna que girará */
+.outfit-inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d; /* Permite el efecto 3D */
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Efecto de giro al pasar el mouse */
+.outfit:hover .outfit-inner {
+  transform: rotateY(180deg);
+}
+
+
+
+/* Parte delantera y trasera */
+.outfit-front, .outfit-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Oculta la parte trasera hasta que gire */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Parte delantera */
+.outfit-front {
+  z-index: 2;
+}
+
+/* Parte trasera con información adicional */
+.outfit-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to bottom, #172c49dc, #169e81);
+  color: white;
+  font-family: 'Lora', serif;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.outfit-back p {
+  color: #fff !important;
+  font-size: 1.3rem !important;
+}
+
+/* Imágenes */
+.outfit img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+/* Texto debajo de las imágenes */
+.outfit p {
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  font-family: 'Lora', serif;
+}
+
+
+
+  
+  @media (max-width: 768px) {
+    .outfits-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+    .outfit {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  
+
+/*Media queries*/
+
+  /* Para pantallas de 480 */
+@media (max-width: 480px) {
+  .guest-outfits p {
+    font-size: 1rem;
+    color: black;
+    font-family: 'Lora', serif;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+ 
+  /* Estilo general para la sección seleccionar fotos */
+  #subir-fotos {
+    background-color: #5e7a51d8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat; /* Se repite por toda la pantalla */
+    background-size: auto; 
+  }
+
+  .contenedor-subir-fotos {
+    display: grid;
+    place-items: center;
+    margin-bottom: 2rem;
+  }
+
+  .title-upload-photos {
+    text-align: center;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 3.5rem;
+    padding-top: 3rem;
+    padding-bottom: 2rem;  
+}
+
+  .texto-subir-fotos {
+    text-align: center;
+    font-family: 'Dancing Script', sans-serif;
+    padding: 2.5rem 2.5rem;
+    font-size: 2.3rem;
+    font-weight: bold;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+    
+  }
+
+  .frase-texto {
+    margin-top: auto;
+  }
+
+  .texto-info {
+    padding-top: 3rem;
+    font-size: 1.3rem;
+    font-family: 'sans-serif';
+    font-weight: lighter;
+  }
+
+  .contenedor-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  form {
+    background-color: rgba(255, 255, 255, 0.726);
+    backdrop-filter: blur(10px);/*Aplicacion de desenfoque*/
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+
+  }
+  
+  form input[type="file"] {
+    display: none; /* Ocultar input de archivo */
+  }
+  
+  /* Etiqueta personalizada para input */
+  label {
+    display: inline-block;
+    background-color: #3E555E;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  label:hover {
+    background-color: #23A8DE;
+    transform: translateY(-2px);
+  }
+  
+  /* Botón de subir */
+  button {
+    background: #894450;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: #DE2345;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Mensaje de estado */
+  #status {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: 'Dancing Script', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+
+ /* HTML: <div class="loader"></div> */
+ .loader {
+    padding-bottom: 20px;
+    width: 60px;
+    aspect-ratio: 1;
+    background: linear-gradient(#dc1818 0 0) bottom/100% 0% no-repeat #ccc;
+    -webkit-mask: 
+      radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
+      radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
+      linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
+      linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
+    -webkit-mask-size: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
+    animation: l19 2s infinite linear;
+  }
+  @keyframes l19 {
+      90%,100% {background-size:100% 100%}
+  }
+
+
+.status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  
+  /* Ajustes responsivos */
+
+@media (min-width: 768px) and (max-width:1023px) {
+
+  .title-upload-photos {
+    font-size: 3rem;
+  }
+
+    .loader {
+        margin-top: 1rem;
+    }
+
+
+    .contenedor-subir-fotos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .frase-texto {
+        font-size: 3rem;
+        padding-bottom: 3rem;
+
+    }
+
+    .texto-subir-fotos {
+        font-size: 2rem;
+        padding-bottom: 3rem;
+
+    }
+
+    .texto-info {
+      font-family: 'sans-serif';
+      font-weight: lighter;
+    }
+
+    form {
+        margin-bottom: 2rem;
+    }
+
+    #status {
+        margin-top: 20px; /* Espacio entre el formulario y el mensaje */
+        text-align: center;
+        font-size: 10px;
+    }
+}
+
+
+  @media (max-width: 480px) {
+
+    .contenedor-form {
+      padding-bottom: 5rem;
+      align-items: center;
+    }
+
+
+    form {
+        display: grid;
+        place-items: center;
+        margin-top: 0;
+    }
+
+    .title-upload-photos {
+        text-align: center;
+        font-family: 'Dancing Script', sans-serif;
+        font-size: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;  
+        margin-bottom: 1rem;
+    }
+
+    .texto-subir-fotos {
+      padding: 1.2rem 1.2rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .frase-texto {
+        font-size: 1.8rem;
+        padding-bottom: 1rem;
+        font-weight: bold;
+    }
+
+    .texto-info {
+      font-size: 0.9rem;
+      font-family: 'sans-serif';
+      font-weight: lighter;
+    }
+
+    #status {
+        padding: 15px 15px;
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+
+    }
+
+
+  
+    label, button {
+      font-size: 14px;
+      padding: 10px 18px;
+    }
+  }
+
+
+
+/* Sección Confirmar Asistencia */
+#confirmar-asistencia {
+  background-color: #5e7a51d8; /* Fondo con un tono cálido */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: repeat; /* Se repite por toda la pantalla */
+  background-size: auto; 
+  padding: 4rem 2rem; /* Ajustado para mejor adaptación */
+  text-align: center; /* Centra el contenido */
+}
+
+/* Contenedor de confirmación */
+.confirmacion {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 12px;
+  background-color: #fff; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra más ligera */
+}
+
+/* Título */
+.titulo-confirmacion {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #2b2b2b; /* Color más oscuro para mejor lectura */
+  margin-bottom: 1.2rem;
+}
+
+/* Texto de confirmación */
+.texto-confirmacion {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #444; /* Un poco más oscuro */
+  margin-bottom: 2rem;
+}
+
+/* Botón Confirmar */
+.boton-confirmar {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 18px;
+  color: white;
+  background-color: #25D366; /* Verde WhatsApp */
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#confirmar-asistencia {
+  background-color: #5e7a51d8; /* Fondo con un tono cálido */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%231a3151' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: repeat; /* Se repite por toda la pantalla */
+  background-size: auto; 
+  padding: 4rem 2rem; /* Ajustado para mejor adaptación */
+  text-align: center; /* Centra el contenido */
+}
+
+/* Contenedor de confirmación */
+.confirmacion {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid #ddd; /* Borde sutil */
+  border-radius: 12px;
+  background-color: #fff; /* Fondo blanco */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Sombra más ligera */
+}
+
+/* Título */
+.titulo-confirmacion {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  color: #2b2b2b; /* Color más oscuro para mejor lectura */
+  margin-bottom: 1.2rem;
+}
+
+/* Texto de confirmación */
+.texto-confirmacion {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  color: #444; /* Un poco más oscuro */
+  margin-bottom: 2rem;
+}
+
+/* Botón Confirmar */
+.boton-confirmar {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 18px;
+  color: white;
+  background-color: #25D366; /* Verde WhatsApp */
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto hover */
+.boton-confirmar:hover {
+  background-color: #1ebd5a;
+  transform: scale(1.05);
+}
+
+/* Media Query: Tablets y pantallas medianas */
+@media (min-width: 768px) and (max-width: 1200px) {
+  .titulo-confirmacion {
+    font-size: 2rem;
+  }
+
+  .texto-confirmacion {
+    font-size: 1rem;
+  }
+
+  .boton-confirmar {
+    font-size: 1.2rem;
+    padding: 14px 28px;
+  }
+}
+
+/* Media Query: Móviles */
+@media (max-width: 480px) {
+  #confirmar-asistencia {
+    padding: 3rem 1rem;
+  }
+
+  .confirmacion {
+    padding: 1.5rem;
+  }
+
+  .titulo-confirmacion {
+    font-size: 1.8rem;
+  }
+
+  .texto-confirmacion {
+    font-size: 1rem;
+  }
+
+  .boton-confirmar {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+}
