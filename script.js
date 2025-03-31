@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 AOS.init();
 
 // Obtener la fecha de la boda
-const fechaBoda = new Date('2025-03-28T13:57:00').getTime();
+const fechaBoda = new Date('2025-03-31T13:57:00').getTime();
 
 // Seleccionar los elementos del DOM
 const diasEl = document.getElementById('dias');
